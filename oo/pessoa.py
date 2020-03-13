@@ -18,3 +18,12 @@ if __name__ == "__main__":
     print(jacson.idade)
     for filho in jacson.filhos:
         print(filho.nome)
+    jacson.sobrenome = 'Jeremias' #Criando atributos dinamicamente em tempo de execução
+    del jacson.filhos             #Deleta um atributo dinamicamente
+    print(jacson.__dict__)        #__dict__ mostra os atributos de instancia
+    print(joao.__dict__)          #__dict__ mostra os atributos de instancia  
+    
+    
+    
+    
+    
