@@ -1,5 +1,6 @@
 class Pessoa :
-    def __init__(self, *filhos, nome = None, idade = 35):
+    olhos = 2   #Atributo de classe (pode ser acessado pela classe, ou objeto) - criar sempre que o valor for igual para todos os objetos
+    def __init__(self, *filhos, nome = None, idade = 35): #Atributo de instância só pode ser acessado pelo objeto - criar se o valor for diferente para cada objeto
         self.idade = idade
         self.nome = nome
         self.filhos = list(filhos)
@@ -22,6 +23,8 @@ if __name__ == "__main__":
     del jacson.filhos             #Deleta um atributo dinamicamente
     print(jacson.__dict__)        #__dict__ mostra os atributos de instancia
     print(joao.__dict__)          #__dict__ mostra os atributos de instancia  
+    print(Pessoa.olhos)           #atributo sendo acessado pela classe
+    print(jacson.olhos)           #atributo sendo acessado pelo objeto
     
     
     
