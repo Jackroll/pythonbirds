@@ -104,12 +104,13 @@ SUL = 'Sul'
 LESTE = 'Leste'
 OESTE = 'Oeste'
 
+
 class Motor:
     def __init__(self):
-        self.velocidade = 0
+        self.velocidade = 0     #atributo de instância
 
     def acelerar(self):
-        self.velocidade += 1
+        self.velocidade += 1    #metodo do atributo
 
     def frear(self):
         self.velocidade -= 2
@@ -117,8 +118,6 @@ class Motor:
 
 
 class Direcao:
-
-
     rotacao_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE}    #Atributo de classe
     rotacao_a_esquerda_dct = {NORTE: OESTE, OESTE: SUL, SUL: LESTE, LESTE: NORTE}   #Atributo de classe
 
@@ -130,3 +129,30 @@ class Direcao:
 
     def girar_a_esquerda(self):
         self.valor = self.rotacao_a_esquerda_dct[self.valor]
+
+
+class Carro:
+    def __init__(self, direcao, motor):     #atributos de instância
+        self.motor = motor
+        self.direcao = direcao
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade        #método de instancia
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
+
+
+
