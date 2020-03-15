@@ -16,9 +16,12 @@ class Pessoa :
     def nome_e_atributo_de_classe(cls):             #decorator - método 2 para criar um método de classe
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa):        #Criada classe Homem que herda os atributos da classe pai - Pessoa
+    pass
+
 if __name__ == "__main__":
     joao = Pessoa(nome = 'João')
-    jacson = Pessoa(joao, nome = 'Jacson')
+    jacson = Homem(joao, nome = 'Jacson')       #Substituida o tipo Pessoa pelo tipo Homem e continua funcionando por conta da herança
     print(Pessoa.cumprimentar(jacson))
     print(id(jacson))
     print(jacson.cumprimentar())
@@ -34,8 +37,12 @@ if __name__ == "__main__":
     print(jacson.olhos)           #atributo sendo acessado pelo objeto
     print(Pessoa.metodo_estatico(), jacson.metodo_estatico())   #método de classe acessado pela classe e pelo objeto
     print(Pessoa.nome_e_atributo_de_classe(), jacson.nome_e_atributo_de_classe()) #método de classe acessado pela classe e pelo objeto
-    
-    
+    pessoa = Pessoa('Anonimo')
+    print( isinstance(pessoa, Pessoa))      #Função que verifica se um objeto é de um tipo especifico, no caso verifica se o obejto pessoa é do tipo Pessoa = True - Toda pessoa é uma Pessoa
+    print( isinstance(pessoa, Homem))       #Verifica se o objeto pessoa é do tipo Homem = False, nem toda pessoa é um Homem
+    print( isinstance(jacson, Pessoa))       #Jacson é um objeto do tipo Pessoa
+    print( isinstance(jacson, Homem))       #Jacson é um objeto do Tipo Homem
+
     
     
     
