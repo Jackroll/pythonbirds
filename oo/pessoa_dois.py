@@ -52,6 +52,12 @@ class Pessoa:
         self.ano_nascimento = self.ano_atual - self.idade
         print(f'{self.nome} nasceu em {self.ano_nascimento}')
 
+    @classmethod                                                          #Define que é um método de classe
+    def por_ano_nascimento(cls, nome, ano_nascimento):
+        idade = cls.ano_atual - ano_nascimento
+        print(nome, idade)
+
+
 
 p1 = Pessoa('Jacson', 33 )
 p2 = Pessoa('Diego', 90 )
@@ -60,6 +66,7 @@ print('--------------------------')
 p1.falar('POO')
 p1.parar_comer()
 p1.get_ano_nascimento()
+p1 = Pessoa.por_ano_nascimento('Jacson', 1987)
 print('--------------------------')
 p2.comer('Maçã')
 p2.parar_falar()
